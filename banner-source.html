@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 400px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fdf4ff 0%, #eff6ff 50%, #f0fdf4 100%);
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+  }
+  .left { flex: 1; }
+  .emoji-row { font-size: 42px; letter-spacing: 8px; margin-bottom: 12px; }
+  .title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 58px;
+    line-height: 1.05;
+    background: linear-gradient(135deg, #7c3aed, #e040c8, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .subtitle {
+    font-size: 20px;
+    font-weight: 800;
+    color: #6d28d9;
+    margin-top: 10px;
+    opacity: 0.85;
+  }
+  .tagline {
+    font-size: 16px;
+    font-weight: 700;
+    color: #059669;
+    margin-top: 8px;
+    letter-spacing: 0.3px;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-end;
+  }
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border-radius: 16px;
+    padding: 12px 22px;
+    box-shadow: 0 4px 20px rgba(124,58,237,0.12);
+    border: 2px solid #e9d5ff;
+    min-width: 280px;
+  }
+  .badge-icon { font-size: 30px; }
+  .badge-text { }
+  .badge-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    color: #7c3aed;
+  }
+  .badge-sub {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9ca3af;
+  }
+  .rainbow-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(to right, #f87171, #fb923c, #fbbf24, #4ade80, #60a5fa, #a78bfa, #f472b6);
+  }
+  .rainbow-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(to right, #f472b6, #a78bfa, #60a5fa, #4ade80, #fbbf24, #fb923c, #f87171);
+  }
+</style>
+</head>
+<body>
+  <div class="rainbow-top"></div>
+
+  <div class="left">
+    <div class="emoji-row">📚 🪙 ⭐ 🌈</div>
+    <div class="title">Page Pay<br>Reading Sheets</div>
+    <div class="subtitle">Free printable reading trackers for kids</div>
+    <div class="tagline">✅ Every page read = 1 penny earned · Grades K–3</div>
+  </div>
+
+  <div class="right">
+    <div class="badge">
+      <div class="badge-icon">🌱</div>
+      <div class="badge-text">
+        <div class="badge-title">Level 1: Early Reader</div>
+        <div class="badge-sub">Grades K–1 · Ages 5–7</div>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-icon">🚀</div>
+      <div class="badge-text">
+        <div class="badge-title">Level 2: Growing Reader</div>
+        <div class="badge-sub">Grades 2–3 · Ages 7–9</div>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-icon">🤖</div>
+      <div class="badge-text">
+        <div class="badge-title">AI Prompts Included</div>
+        <div class="badge-sub">Customize for any child or theme</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rainbow-strip"></div>
+</body>
+</html>
