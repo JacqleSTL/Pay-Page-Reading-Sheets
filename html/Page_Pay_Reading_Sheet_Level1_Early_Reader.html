@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Pay Reading Sheet — Level 1: Early Reader</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: white;
+      width: 8.5in;
+      min-height: 11in;
+      padding: 0.4in 0.5in;
+      color: #333;
+    }
+
+    .header { text-align: center; margin-bottom: 10px; }
+
+    .header-icons { font-size: 28px; letter-spacing: 6px; margin-bottom: 4px; }
+
+    .title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 32px;
+      color: #e040c8;
+      text-shadow: 2px 2px 0 #ffd6f6;
+      line-height: 1.1;
+    }
+
+    .level-badge {
+      display: inline-block;
+      background: #fce7f3;
+      border: 2px solid #f9a8d4;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #be185d;
+      padding: 2px 12px;
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f59e0b;
+      margin-top: 4px;
+    }
+
+    .rainbow-bar {
+      height: 6px;
+      background: linear-gradient(to right,
+        #f87171, #fb923c, #fbbf24, #4ade80, #60a5fa, #a78bfa, #f472b6);
+      border-radius: 4px;
+      margin: 8px 0;
+    }
+
+    .section {
+      border: 2.5px solid #e879a0;
+      border-radius: 14px;
+      padding: 10px 14px;
+      margin-bottom: 9px;
+      background: #fff9fe;
+    }
+
+    .section-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 16px;
+      color: #a855f7;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #444;
+    }
+
+    .form-row:last-child { margin-bottom: 0; }
+
+    .write-line {
+      flex: 1;
+      border: none;
+      border-bottom: 2.5px solid #f9a8d4;
+      min-width: 80px;
+      height: 28px;
+      background: transparent;
+    }
+
+    .write-line-sm {
+      width: 70px;
+      border: none;
+      border-bottom: 2.5px solid #f9a8d4;
+      height: 28px;
+      background: transparent;
+      display: inline-block;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+    }
+
+    .money-row {
+      font-size: 15px;
+      font-weight: 800;
+      color: #0ea5e9;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .money-eq {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+
+    .penny-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #b45309;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .penny-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 5px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .penny-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #d97706;
+      background: #fef9c3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #b45309;
+      font-weight: 800;
+    }
+
+    .check-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .check-box {
+      width: 20px;
+      height: 20px;
+      border: 2.5px solid #a855f7;
+      border-radius: 5px;
+      background: white;
+      flex-shrink: 0;
+    }
+
+    .star-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .star-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 6px;
+    }
+
+    @media print {
+      body {
+        width: 8.5in;
+        padding: 0.4in 0.5in;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      @page { size: 8.5in 11in; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-icons">🌈 📚 ⭐ 😊 🪙</div>
+    <div class="title">Page Pay Reading Sheet</div>
+    <div class="level-badge">⭐ Level 1: Early Reader · Grades K–1 ⭐</div>
+    <div class="subtitle">Every page I read earns 1 penny!</div>
+  </div>
+
+  <div class="rainbow-bar"></div>
+
+  <!-- SECTION 1: Book Information -->
+  <div class="section">
+    <div class="section-title"><span>📚</span> Book Information</div>
+    <div class="form-row">
+      <span>😊 My Name:</span>
+      <div class="write-line"></div>
+    </div>
+    <div class="form-row">
+      <span>📖 Book Name:</span>
+      <div class="write-line"></div>
+    </div>
+    <div class="form-row">
+      <span>How many pages are in the book?</span>
+      <div class="write-line-sm"></div>
+      <span>pages</span>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Today I Read -->
+  <div class="section">
+    <div class="section-title"><span>⭐</span> Today I Read</div>
+    <div class="form-grid">
+      <div class="form-row">
+        <span>📅 Today's Date:</span>
+        <div class="write-line"></div>
+      </div>
+      <div class="form-row">
+        <span>▶️ I started on page:</span>
+        <div class="write-line"></div>
+      </div>
+      <div class="form-row">
+        <span>⏹️ I stopped on page:</span>
+        <div class="write-line"></div>
+      </div>
+      <div class="form-row">
+        <span>🌟 Pages read today:</span>
+        <div class="write-line-sm"></div>
+        <span>pages</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: My Money -->
+  <div class="section" style="border-color: #fbbf24; background:#fffdf0;">
+    <div class="section-title" style="color:#d97706;"><span>🪙</span> My Money</div>
+    <div class="money-row">Every page = 1 penny! 🎉</div>
+    <div class="money-eq">
+      <span>I read</span>
+      <div class="write-line-sm"></div>
+      <span>pages.</span>
+      <span style="color:#d97706;">→</span>
+      <span>I earned</span>
+      <div class="write-line-sm"></div>
+      <span>pennies</span>
+      <span style="color:#d97706;">=</span>
+      <span>$</span><div class="write-line-sm" style="width:50px;"></div>
+      <span>🪙</span>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Color My Pennies -->
+  <div class="section" style="border-color: #fbbf24; background:#fffdf0;">
+    <div class="section-title" style="color:#d97706;"><span>🪙</span> Color My Pennies</div>
+    <div class="penny-label">Color one penny for each page you read today!</div>
+    <div class="penny-grid">
+      <div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div>
+      <div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div>
+      <div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div>
+      <div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div>
+      <div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div><div class="penny-circle">¢</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: My Reading Feeling -->
+  <div class="section">
+    <div class="section-title"><span>😊</span> My Reading Feeling</div>
+    <div class="check-group">
+      <div class="check-item"><div class="check-box"></div> 😊 Easy</div>
+      <div class="check-item"><div class="check-box"></div> 🤔 A little tricky</div>
+      <div class="check-item"><div class="check-box"></div> 💪 Hard</div>
+      <div class="check-item"><div class="check-box"></div> 🎉 Fun</div>
+      <div class="check-item"><div class="check-box"></div> 📖 I want to keep going!</div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: My Book Rating -->
+  <div class="section">
+    <div class="section-title"><span>⭐</span> My Book Rating</div>
+    <div class="star-group">
+      <div class="star-item"><div class="check-box" style="border-color:#fbbf24;"></div> ⭐ 1 star</div>
+      <div class="star-item"><div class="check-box" style="border-color:#fbbf24;"></div> ⭐⭐ 2 stars</div>
+      <div class="star-item"><div class="check-box" style="border-color:#fbbf24;"></div> ⭐⭐⭐ 3 stars</div>
+      <div class="star-item"><div class="check-box" style="border-color:#fbbf24;"></div> ⭐⭐⭐⭐ 4 stars</div>
+      <div class="star-item"><div class="check-box" style="border-color:#fbbf24;"></div> ⭐⭐⭐⭐⭐ 5 stars</div>
+    </div>
+  </div>
+
+  <div class="rainbow-bar"></div>
+  <div class="footer">🌈 Great job reading! You are a SUPERSTAR! 🌟</div>
+
+</body>
+</html>

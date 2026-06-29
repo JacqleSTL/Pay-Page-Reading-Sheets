@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Pay Reading Tracker — Level 2: Growing Reader</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: white;
+      width: 8.5in;
+      min-height: 11in;
+      padding: 0.38in 0.5in;
+      color: #222;
+    }
+
+    .header { text-align: center; margin-bottom: 8px; }
+
+    .header-icons { font-size: 24px; letter-spacing: 8px; margin-bottom: 3px; }
+
+    .title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 30px;
+      color: #7c3aed;
+      line-height: 1.1;
+    }
+
+    .level-badge {
+      display: inline-block;
+      background: #ede9fe;
+      border: 2px solid #c4b5fd;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #6d28d9;
+      padding: 2px 12px;
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      font-weight: 800;
+      color: #f59e0b;
+      margin-top: 4px;
+    }
+
+    .rainbow-bar {
+      height: 5px;
+      background: linear-gradient(to right,
+        #f87171, #fb923c, #fbbf24, #4ade80, #60a5fa, #a78bfa, #f472b6);
+      border-radius: 4px;
+      margin: 7px 0;
+    }
+
+    .section {
+      border: 2px solid #c4b5fd;
+      border-radius: 12px;
+      padding: 9px 13px;
+      margin-bottom: 8px;
+      background: #faf8ff;
+    }
+
+    .section-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 15px;
+      color: #7c3aed;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #444;
+    }
+
+    .form-row:last-child { margin-bottom: 0; }
+
+    .write-line {
+      flex: 1;
+      border: none;
+      border-bottom: 2px solid #c4b5fd;
+      height: 24px;
+      background: transparent;
+    }
+
+    .write-line-sm {
+      width: 80px;
+      border: none;
+      border-bottom: 2px solid #c4b5fd;
+      height: 24px;
+      background: transparent;
+      display: inline-block;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 16px;
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 800;
+      color: #0ea5e9;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .formula-box {
+      background: #e0f2fe;
+      border: 2px solid #7dd3fc;
+      border-radius: 8px;
+      padding: 2px 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #0369a1;
+    }
+
+    .formula-blank {
+      width: 70px;
+      border: none;
+      border-bottom: 2.5px solid #7dd3fc;
+      height: 26px;
+      background: transparent;
+      display: inline-block;
+    }
+
+    .log-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+      font-size: 12px;
+    }
+
+    .log-table th {
+      background: #7c3aed;
+      color: white;
+      font-family: 'Fredoka One', cursive;
+      font-size: 12px;
+      padding: 6px 4px;
+      text-align: center;
+      border: 1px solid #6d28d9;
+    }
+
+    .log-table td {
+      border: 1px solid #ddd6fe;
+      height: 26px;
+      padding: 2px 6px;
+      background: white;
+    }
+
+    .log-table tr:nth-child(even) td { background: #f5f3ff; }
+
+    .total-row {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      flex-wrap: wrap;
+    }
+
+    .total-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fef3c7;
+      border: 2px solid #fbbf24;
+      border-radius: 10px;
+      padding: 6px 14px;
+    }
+
+    .total-blank {
+      width: 80px;
+      border: none;
+      border-bottom: 2.5px solid #f59e0b;
+      height: 24px;
+      background: transparent;
+      display: inline-block;
+    }
+
+    .money-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .money-tile {
+      background: #ecfdf5;
+      border: 2px solid #6ee7b7;
+      border-radius: 10px;
+      text-align: center;
+      padding: 6px 4px;
+    }
+
+    .money-tile .pages { font-family: 'Fredoka One', cursive; font-size: 15px; color: #059669; }
+    .money-tile .arrow { font-size: 12px; color: #6ee7b7; margin: 1px 0; }
+    .money-tile .amount { font-size: 13px; font-weight: 800; color: #065f46; }
+
+    .fav-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .fav-line {
+      flex: 1;
+      border: none;
+      border-bottom: 2px solid #c4b5fd;
+      height: 24px;
+      background: transparent;
+    }
+
+    .star-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+    .star-item { display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; }
+
+    .check-box {
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid #fbbf24;
+      border-radius: 4px;
+      background: white;
+      flex-shrink: 0;
+    }
+
+    .footer { text-align: center; font-size: 11px; color: #aaa; margin-top: 6px; }
+
+    @media print {
+      body {
+        width: 8.5in;
+        padding: 0.38in 0.5in;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      @page { size: 8.5in 11in; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-icons">📚 ✏️ ⭐ 🪙 📖</div>
+    <div class="title">Page Pay Reading Tracker</div>
+    <div class="level-badge">⭐ Level 2: Growing Reader · Grades 2–3 ⭐</div>
+    <div class="subtitle">Every page I read earns 1 penny!</div>
+  </div>
+
+  <div class="rainbow-bar"></div>
+
+  <!-- SECTION 1: Reader Information -->
+  <div class="section">
+    <div class="section-title">📖 Reader Information</div>
+    <div class="form-grid-2">
+      <div class="form-row">
+        <span>My Name:</span>
+        <div class="write-line"></div>
+      </div>
+      <div class="form-row">
+        <span>Total Pages in This Book:</span>
+        <div class="write-line-sm"></div>
+      </div>
+      <div class="form-row">
+        <span>📘 Book Title:</span>
+        <div class="write-line"></div>
+      </div>
+      <div class="form-row">
+        <span>✏️ Author:</span>
+        <div class="write-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Full Book Earnings -->
+  <div class="section" style="border-color:#7dd3fc; background:#f0f9ff;">
+    <div class="section-title" style="color:#0369a1;">🪙 Full Book Earnings</div>
+    <div style="font-size:12px; font-weight:700; color:#555; text-align:center; margin-bottom:5px;">
+      Fill this in when you finish the whole book!
+    </div>
+    <div class="formula-row">
+      <div class="formula-blank"></div>
+      <div class="formula-box">pages</div>
+      <span style="color:#94a3b8;">×</span>
+      <div class="formula-box">1¢ each</div>
+      <span style="color:#94a3b8;">=</span>
+      <span style="color:#0369a1;">$</span>
+      <div class="formula-blank"></div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Daily Reading Log -->
+  <div class="section" style="border-color:#a5b4fc; background:#f8f7ff; padding-bottom:8px;">
+    <div class="section-title" style="color:#4338ca;">📅 Daily Reading Log</div>
+    <table class="log-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Page I Started On</th>
+          <th>Page I Stopped On</th>
+          <th>Pages I Read Today</th>
+          <th>Money I Earned Today</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 4: Book Total -->
+  <div class="section" style="border-color:#fbbf24; background:#fffbeb;">
+    <div class="section-title" style="color:#b45309;">🏆 Book Total</div>
+    <div class="total-row">
+      <div class="total-item">
+        <span>📄 Total pages I read:</span>
+        <div class="total-blank"></div>
+        <span>pages</span>
+      </div>
+      <div class="total-item">
+        <span>🪙 Total money I earned:</span>
+        <span style="font-weight:800;">$</span>
+        <div class="total-blank"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Money Helper Box -->
+  <div class="section" style="border-color:#6ee7b7; background:#f0fdf4;">
+    <div class="section-title" style="color:#059669;">💰 Money Helper</div>
+    <div class="money-grid">
+      <div class="money-tile"><div class="pages">10</div><div class="arrow">pages →</div><div class="amount">$0.10</div></div>
+      <div class="money-tile"><div class="pages">25</div><div class="arrow">pages →</div><div class="amount">$0.25</div></div>
+      <div class="money-tile"><div class="pages">50</div><div class="arrow">pages →</div><div class="amount">$0.50</div></div>
+      <div class="money-tile"><div class="pages">75</div><div class="arrow">pages →</div><div class="amount">$0.75</div></div>
+      <div class="money-tile"><div class="pages">100</div><div class="arrow">pages →</div><div class="amount">$1.00</div></div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: Book Reflection -->
+  <div class="section">
+    <div class="section-title">💭 Book Reflection</div>
+    <div class="fav-row">
+      <span>My favorite part was:</span>
+      <div class="fav-line"></div>
+    </div>
+    <div style="font-size:13px; font-weight:700; margin-bottom:5px;">⭐ I give this book:</div>
+    <div class="star-group">
+      <div class="star-item"><div class="check-box"></div> ⭐ 1 star</div>
+      <div class="star-item"><div class="check-box"></div> ⭐⭐ 2 stars</div>
+      <div class="star-item"><div class="check-box"></div> ⭐⭐⭐ 3 stars</div>
+      <div class="star-item"><div class="check-box"></div> ⭐⭐⭐⭐ 4 stars</div>
+      <div class="star-item"><div class="check-box"></div> ⭐⭐⭐⭐⭐ 5 stars</div>
+    </div>
+  </div>
+
+  <div class="rainbow-bar"></div>
+  <div class="footer">📚 Amazing work! Every page makes you a stronger reader! 🌟</div>
+
+</body>
+</html>
