@@ -3,125 +3,178 @@
 <head>
 <meta charset="UTF-8"/>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    width: 1200px;
-    height: 400px;
+    width: 1280px;
+    height: 640px;
     overflow: hidden;
-    background: linear-gradient(135deg, #fdf4ff 0%, #eff6ff 50%, #f0fdf4 100%);
+    background: linear-gradient(135deg, #fdf4ff 0%, #eff6ff 55%, #f0fdf4 100%);
     font-family: 'Nunito', sans-serif;
+    position: relative;
+  }
+
+  /* decorative blobs */
+  .blob1 {
+    position: absolute; width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, #f9a8d480 0%, transparent 70%);
+    top: -80px; left: -80px;
+  }
+  .blob2 {
+    position: absolute; width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, #a5f3fc60 0%, transparent 70%);
+    bottom: -60px; right: 320px;
+  }
+  .blob3 {
+    position: absolute; width: 250px; height: 250px; border-radius: 50%;
+    background: radial-gradient(circle, #bbf7d060 0%, transparent 70%);
+    top: 50px; right: -40px;
+  }
+
+  .rainbow-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 10px;
+    background: linear-gradient(to right, #f472b6,#a78bfa,#60a5fa,#4ade80,#fbbf24,#fb923c,#f87171);
+  }
+  .rainbow-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 10px;
+    background: linear-gradient(to right, #f87171,#fb923c,#fbbf24,#4ade80,#60a5fa,#a78bfa,#f472b6);
+  }
+
+  .content {
+    position: relative;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 60px;
+    height: 100%;
+    padding: 40px 70px;
   }
-  .left { flex: 1; }
-  .emoji-row { font-size: 42px; letter-spacing: 8px; margin-bottom: 12px; }
+
+  /* LEFT */
+  .left { flex: 1; padding-right: 40px; }
+
+  .emoji-row { font-size: 52px; letter-spacing: 10px; margin-bottom: 16px; }
+
   .title {
     font-family: 'Fredoka One', cursive;
-    font-size: 58px;
-    line-height: 1.05;
-    background: linear-gradient(135deg, #7c3aed, #e040c8, #f59e0b);
+    font-size: 82px;
+    line-height: 1.0;
+    background: linear-gradient(135deg, #7c3aed 0%, #c026d3 50%, #f59e0b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-bottom: 14px;
   }
+
   .subtitle {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 800;
-    color: #6d28d9;
-    margin-top: 10px;
-    opacity: 0.85;
+    color: #4c1d95;
+    margin-bottom: 10px;
   }
-  .tagline {
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #7c3aed, #c026d3);
+    color: white;
     font-size: 16px;
-    font-weight: 700;
-    color: #059669;
-    margin-top: 8px;
+    font-weight: 800;
+    padding: 8px 20px;
+    border-radius: 999px;
     letter-spacing: 0.3px;
   }
+
+  /* RIGHT */
   .right {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    align-items: flex-end;
+    gap: 16px;
+    align-items: stretch;
+    min-width: 360px;
   }
-  .badge {
+
+  .card {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     background: white;
-    border-radius: 16px;
-    padding: 12px 22px;
-    box-shadow: 0 4px 20px rgba(124,58,237,0.12);
-    border: 2px solid #e9d5ff;
-    min-width: 280px;
+    border-radius: 20px;
+    padding: 16px 24px;
+    box-shadow: 0 6px 24px rgba(124,58,237,0.13);
+    border-left: 6px solid #a855f7;
   }
-  .badge-icon { font-size: 30px; }
-  .badge-text { }
-  .badge-title {
+  .card.green { border-left-color: #10b981; }
+  .card.blue  { border-left-color: #3b82f6; }
+
+  .card-icon { font-size: 36px; }
+
+  .card-title {
     font-family: 'Fredoka One', cursive;
-    font-size: 16px;
-    color: #7c3aed;
+    font-size: 19px;
+    color: #1e1b4b;
   }
-  .badge-sub {
-    font-size: 12px;
+  .card-sub {
+    font-size: 13px;
     font-weight: 700;
     color: #9ca3af;
+    margin-top: 2px;
   }
-  .rainbow-strip {
+
+  .free-badge {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: linear-gradient(to right, #f87171, #fb923c, #fbbf24, #4ade80, #60a5fa, #a78bfa, #f472b6);
-  }
-  .rainbow-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: linear-gradient(to right, #f472b6, #a78bfa, #60a5fa, #4ade80, #fbbf24, #fb923c, #f87171);
+    top: 28px; right: 28px;
+    background: #fbbf24;
+    color: #78350f;
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    padding: 6px 18px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(251,191,36,0.4);
+    z-index: 20;
   }
 </style>
 </head>
 <body>
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+  <div class="blob3"></div>
   <div class="rainbow-top"></div>
+  <div class="rainbow-bottom"></div>
+  <div class="free-badge">100% Free 🎉</div>
 
-  <div class="left">
-    <div class="emoji-row">📚 🪙 ⭐ 🌈</div>
-    <div class="title">Page Pay<br>Reading Sheets</div>
-    <div class="subtitle">Free printable reading trackers for kids</div>
-    <div class="tagline">✅ Every page read = 1 penny earned · Grades K–3</div>
+  <div class="content">
+    <div class="left">
+      <div class="emoji-row">📚 🪙 ⭐ 🌈</div>
+      <div class="title">Page Pay<br>Reading Sheets</div>
+      <div class="subtitle">Printable reading trackers kids actually love</div>
+      <div class="pill">📄 Every page read = 1 penny earned · Grades K–3</div>
+    </div>
+
+    <div class="right">
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <div>
+          <div class="card-title">Level 1: Early Reader</div>
+          <div class="card-sub">Grades K–1 · Ages 5–7 · Penny coloring + feelings</div>
+        </div>
+      </div>
+      <div class="card green">
+        <div class="card-icon">🚀</div>
+        <div>
+          <div class="card-title">Level 2: Growing Reader</div>
+          <div class="card-sub">Grades 2–3 · Ages 7–9 · 7-day log + money helper</div>
+        </div>
+      </div>
+      <div class="card blue">
+        <div class="card-icon">🤖</div>
+        <div>
+          <div class="card-title">AI Prompts Included</div>
+          <div class="card-sub">Customize theme, name & rewards in minutes</div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="right">
-    <div class="badge">
-      <div class="badge-icon">🌱</div>
-      <div class="badge-text">
-        <div class="badge-title">Level 1: Early Reader</div>
-        <div class="badge-sub">Grades K–1 · Ages 5–7</div>
-      </div>
-    </div>
-    <div class="badge">
-      <div class="badge-icon">🚀</div>
-      <div class="badge-text">
-        <div class="badge-title">Level 2: Growing Reader</div>
-        <div class="badge-sub">Grades 2–3 · Ages 7–9</div>
-      </div>
-    </div>
-    <div class="badge">
-      <div class="badge-icon">🤖</div>
-      <div class="badge-text">
-        <div class="badge-title">AI Prompts Included</div>
-        <div class="badge-sub">Customize for any child or theme</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="rainbow-strip"></div>
 </body>
 </html>
