@@ -1,4 +1,4 @@
-![Page Pay Reading Sheets Banner](banner.png)
+![Page Pay Reading Sheets Banner](social-preview.png)
 
 # 📚 Page Pay Reading Sheets
 
